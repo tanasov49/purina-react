@@ -1,0 +1,15 @@
+.address-clients__close-btn {
+    background-image: url(../../../images/close_btn.svg);
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    display: block;
+    outline: none;
+    z-index: 3;
+    position: absolute;
+    top: 25vh;
+}
+

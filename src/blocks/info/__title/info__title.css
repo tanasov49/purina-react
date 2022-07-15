@@ -1,0 +1,11 @@
+.info__title {
+    font-size: 48px;
+    line-height: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .info__title {
+        font-size: 26px;
+    }
+}

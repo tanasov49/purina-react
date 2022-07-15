@@ -1,0 +1,7 @@
+.cities {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}

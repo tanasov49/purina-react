@@ -1,0 +1,19 @@
+.address-clients__btn {
+    height: 60px;
+    width: 200px;
+    border-radius: 20px;
+    outline: none;
+    background-color: #4471dd;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+}
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .address-clients__btn {
+        align-self: center;
+    }
+}
