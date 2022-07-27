@@ -3,7 +3,6 @@ import Header from './Header';
 import Main from './Main';
 import React from 'react';
 import '../index.css';
-import PopupAddress from './PopupAddress';
 import api from './Api';
 import DbcCodes from './DbcCodes';
 
@@ -29,16 +28,15 @@ function App() {
   return (
     <div className='page'>
       <Header></Header>
-      <Main
-      onOpenAddress={handleOpenAddress}
+      <Main onOpenAddress={handleOpenAddress}
+       cards={cards} 
+       isOpen={isOpenAddress} 
+       onClose={closePopup} 
       />
       <DbcCodes 
       cards={cards}
       />
       <Footer></Footer>
-      <PopupAddress isOpen={isOpenAddress} onClose={closePopup} 
-      cards={cards}
-      />
     </div>
   );
 }
