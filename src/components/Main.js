@@ -1,8 +1,8 @@
-import React from 'react';
+
 import PopupAddress from './PopupAddress';
+import React from 'react';
 // import DbcCodes from './DbcCodes';
 export default function Main(props) {
-
     return (
         <main className="main">
         <section className="info">
@@ -22,6 +22,7 @@ export default function Main(props) {
         </ul>
         </div>
         <ul className="dbc-codes">
+            
             {props.cards.map((items, key) => {
                 return (
                     <li className="dbc-list" key={key}>
