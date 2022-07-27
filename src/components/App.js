@@ -3,11 +3,13 @@ import Header from './Header';
 import Main from './Main';
 import React from 'react';
 import '../index.css';
-import DbcCodes from './DbcCodes';
 import PopupAddress from './PopupAddress';
+import api from './Api';
+import DbcCodes from './DbcCodes';
 
 function App() {
   const [isOpenAddress, setAddressPopupOpen] = React.useState(false);
+  const [cards, setCards] = React.useState([]);
   const handleOpenAddress = () => {
     setAddressPopupOpen(true);
   }
@@ -16,8 +18,13 @@ function App() {
       setAddressPopupOpen(false);
     }
   }
-
-
+  Promise.all([
+    api.getAddress(),
+  ]).then(([cards]) => {
+    setCards(cards);
+  }).catch(err => {
+    console.log(`Error: ${err}`);
+  })
   
   return (
     <div className='page'>
@@ -25,9 +32,13 @@ function App() {
       <Main
       onOpenAddress={handleOpenAddress}
       />
-      <DbcCodes></DbcCodes>
+      <DbcCodes 
+      cards={cards}
+      />
       <Footer></Footer>
-      <PopupAddress isOpen={isOpenAddress} onClose={closePopup}></PopupAddress>
+      <PopupAddress isOpen={isOpenAddress} onClose={closePopup} 
+      cards={cards}
+      />
     </div>
   );
 }

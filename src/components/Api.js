@@ -1,4 +1,4 @@
-  export class Api {
+class Api {
     constructor(options) {
       this.address = options.urlJson;
       this.headers = options.headers;
@@ -15,5 +15,11 @@
         headers: this.headers,
       }).then(this._checkResponse);
     }
-    
   }
+  const api = new Api({
+    urlJson: 'https://api.npoint.io/c6c32c3072fc0ee4bcfc',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+  export default api;
