@@ -12,9 +12,14 @@ function App() {
   const handleOpenAddress = () => {
     setAddressPopupOpen(true);
   }
+  const [selectedCard, setIsSelectedCard] = React.useState({});
+  const handleCardClick = (card) => {
+      setIsSelectedCard(card)
+    }
   function closePopup (event) {
     if (event.target.classList.contains('popup') || event.target.classList.contains('address-clients__close-btn')) {
       setAddressPopupOpen(false);
+      setIsSelectedCard({});
     }
   }
   Promise.all([
@@ -32,9 +37,11 @@ function App() {
        cards={cards} 
        isOpen={isOpenAddress} 
        onClose={closePopup} 
+       onCardClick={handleCardClick}
       />
       <DbcCodes 
-      cards={cards}
+        card={selectedCard}
+        cards={cards} 
       />
       <Footer></Footer>
     </div>

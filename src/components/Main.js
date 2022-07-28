@@ -3,6 +3,7 @@ import PopupAddress from './PopupAddress';
 import React from 'react';
 // import DbcCodes from './DbcCodes';
 export default function Main(props) {
+
     return (
         <main className="main">
         <section className="info">
@@ -18,11 +19,11 @@ export default function Main(props) {
             {props.cards.map((card, key) => <PopupAddress
             key={key}
             card={card}
+            onCardClick={props.onCardClick}
             />)}
         </ul>
         </div>
-        <ul className="dbc-codes">
-            
+        {/* <ul className="dbc-codes">
             {props.cards.map((items, key) => {
                 return (
                     <li className="dbc-list" key={key}>
@@ -37,7 +38,7 @@ export default function Main(props) {
                     </li>
                         )
             })}
-        </ul>
+        </ul> */}
         </section>
         </main>
     );
