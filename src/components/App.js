@@ -4,7 +4,7 @@ import Main from './Main';
 import React from 'react';
 import '../index.css';
 import api from './Api';
-import DbcCodes from './DbcCodes';
+
 
 function App() {
   const [isOpenAddress, setAddressPopupOpen] = React.useState(false);
@@ -12,14 +12,11 @@ function App() {
   const handleOpenAddress = () => {
     setAddressPopupOpen(true);
   }
-  const [selectedCard, setIsSelectedCard] = React.useState({});
-  const handleCardClick = (card) => {
-      setIsSelectedCard(card)
-    }
+
   function closePopup (event) {
     if (event.target.classList.contains('popup') || event.target.classList.contains('address-clients__close-btn')) {
       setAddressPopupOpen(false);
-      setIsSelectedCard({});
+      
     }
   }
   Promise.all([
@@ -37,12 +34,9 @@ function App() {
        cards={cards} 
        isOpen={isOpenAddress} 
        onClose={closePopup} 
-       onCardClick={handleCardClick}
+
       />
-      <DbcCodes 
-        card={selectedCard}
-        cards={cards} 
-      />
+
       <Footer></Footer>
     </div>
   );

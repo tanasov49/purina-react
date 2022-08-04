@@ -1,9 +1,12 @@
 
 import PopupAddress from './PopupAddress';
 import React from 'react';
-// import DbcCodes from './DbcCodes';
+import DbcCodes from './DbcCodes';
 export default function Main(props) {
-
+    const [selectedCard, setIsSelectedCard] = React.useState({});
+    const handleCardClick = (card) => {
+        setIsSelectedCard(card)
+      }
     return (
         <main className="main">
         <section className="info">
@@ -19,26 +22,13 @@ export default function Main(props) {
             {props.cards.map((card, key) => <PopupAddress
             key={key}
             card={card}
-            onCardClick={props.onCardClick}
+            onCardClick={handleCardClick}
             />)}
         </ul>
         </div>
-        {/* <ul className="dbc-codes">
-            {props.cards.map((items, key) => {
-                return (
-                    <li className="dbc-list" key={key}>
-                        {Object.keys(items).map((dbc, key) => {
-                            if (items[dbc] === "0") {
-                                return (
-                                    <p className="dbc-list__text" key={key}>{dbc}</p>
-                                        )
-                        }
-                        return null
-                        })}
-                    </li>
-                        )
-            })}
-        </ul> */}
+        <DbcCodes 
+        card={selectedCard}
+        />
         </section>
         </main>
     );
