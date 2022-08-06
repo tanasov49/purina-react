@@ -5,7 +5,6 @@ import React from 'react';
 import '../index.css';
 import api from './Api';
 
-
 function App() {
   const [isOpenAddress, setAddressPopupOpen] = React.useState(false);
   const [cards, setCards] = React.useState([]);
@@ -34,9 +33,7 @@ function App() {
        cards={cards} 
        isOpen={isOpenAddress} 
        onClose={closePopup} 
-
       />
-
       <Footer></Footer>
     </div>
   );

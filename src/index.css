@@ -1,9 +1,11 @@
 @import url(./vendor/normalize.css);
 @import url(./fonts/fonts.css);
-@import url(./blocks/page/page.css);
 @import url(./blocks/header/__link/header__link.css);
 @import url(./blocks/header/__logo/header__logo.css);
 @import url(./blocks/header/__title/header__title.css);
+@import url(./blocks/info/info.css);
+@import url(./blocks/info/__title/info__title.css);
+@import url(./blocks/info/__subtitle/info__subtitle.css);
 @import url(./blocks/cities/cities.css);
 @import url(./blocks/city/city.css);
 @import url(./blocks/dbc-list/dbc-list.css);

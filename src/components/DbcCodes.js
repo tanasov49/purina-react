@@ -1,3 +1,4 @@
+import React from "react";
 export default function DbcCodes({card}) {
     return (
         <ul className="dbc-codes">
