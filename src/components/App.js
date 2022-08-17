@@ -1,23 +1,13 @@
 import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
-import React from 'react';
+import React, {useState} from 'react';
 import '../index.css';
 import api from './Api';
-
 function App() {
-  const [isOpenAddress, setAddressPopupOpen] = React.useState(false);
-  const [cards, setCards] = React.useState([]);
-  const handleOpenAddress = () => {
-    setAddressPopupOpen(true);
-  }
 
-  function closePopup (event) {
-    if (event.target.classList.contains('popup') || event.target.classList.contains('address-clients__close-btn')) {
-      setAddressPopupOpen(false);
-      
-    }
-  }
+  const [cards, setCards] = useState([]);
+
   Promise.all([
     api.getAddress(),
   ]).then(([cards]) => {
@@ -29,14 +19,16 @@ function App() {
   return (
     <div className='page'>
       <Header></Header>
-      <Main onOpenAddress={handleOpenAddress}
+      <Main 
        cards={cards} 
-       isOpen={isOpenAddress} 
-       onClose={closePopup} 
       />
       <Footer></Footer>
     </div>
   );
 }
+
+
+
+
 
 export default App;

@@ -1,11 +1,23 @@
 
 import PopupAddress from './PopupAddress';
-import React from 'react';
+import React, { useState } from 'react';
 import DbcCodes from './DbcCodes';
 export default function Main(props) {
-    const [selectedCard, setIsSelectedCard] = React.useState({});
+    const [isOpenAddress, setAddressPopupOpen] = useState(false)
+    const handleOpenAddress = () => {
+      setAddressPopupOpen(true);
+    }
+  
+    function closePopup (event) {
+      if (event.target.classList.contains('popup') || event.target.classList.contains('address-clients__close-btn')) {
+        setAddressPopupOpen(false);
+        
+      }
+    }
+    const [selectedCard, setIsSelectedCard] = useState({});
     const handleCardClick = (card) => {
-        setIsSelectedCard(card)
+        setIsSelectedCard(card);
+        setAddressPopupOpen(false);
       }
     return (
         <main className="main">
@@ -14,10 +26,10 @@ export default function Main(props) {
             <p className="info__subtitle">Выберите ниже нужный вам адрес</p>
         </section>
         <section className="address-clients">
-            <button className="address-clients__btn" onClick={props.onOpenAddress} type='button'>Список адресов</button>
+            <button className="address-clients__btn" onClick={handleOpenAddress} type='button'>Список адресов</button>
             <h2 className="address-clients__title">Ниже приведены позиции с нулевым значением</h2>
-            <div className={props.isOpen ? 'popup popup_opened' : 'popup'} onClick={props.onClose}>
-            <button className="address-clients__close-btn" type='button' onClick={props.onClose}></button>
+            <div className={isOpenAddress ? 'popup popup_opened' : 'popup'} onClick={closePopup}>
+            <button className="address-clients__close-btn" type='button' onClick={closePopup}></button>
             <ul className="address">
             {props.cards.map((card, key) => <PopupAddress
             key={key}

@@ -860,7 +860,10 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC"
