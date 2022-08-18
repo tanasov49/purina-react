@@ -1,7 +1,8 @@
 
 import PopupAddress from './PopupAddress';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import DbcCodes from './DbcCodes';
+import AddressFilter from './AddressFilter';
 export default function Main(props) {
     const [isOpenAddress, setAddressPopupOpen] = useState(false)
     const handleOpenAddress = () => {
@@ -19,6 +20,10 @@ export default function Main(props) {
         setIsSelectedCard(card);
         setAddressPopupOpen(false);
       }
+    const [value, setValue] = useState('');
+    const filterAddress = props.cards.filter(card => {
+      return card['Address'].toLowerCase().includes(value.toLowerCase())
+    })
     return (
         <main className="main">
         <section className="info">
@@ -31,11 +36,19 @@ export default function Main(props) {
             <div className={isOpenAddress ? 'popup popup_opened' : 'popup'} onClick={closePopup}>
             <button className="address-clients__close-btn" type='button' onClick={closePopup}></button>
             <ul className="address">
-            {props.cards.map((card, key) => <PopupAddress
-            key={key}
-            card={card}
-            onCardClick={handleCardClick}
-            />)}
+            <input
+              type='text'
+              className='address__filter' 
+              placeholder='Введите адрес или наименование'
+              onChange={(e) => setValue(e.target.value)}
+            />
+            {filterAddress.map((card, key) => 
+              <PopupAddress 
+              card={card}
+              key={key}
+              onCardClick={handleCardClick}
+              />
+            )}
         </ul>
         </div>
         <DbcCodes 

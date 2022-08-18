@@ -1,7 +1,7 @@
 import React from "react";
-export default function PopupAddress(props) {
+export default function PopupAddress(props, {key}) {
     const handleCardClick = () => props.onCardClick(props.card);
     return (
-            <li className="address__option" onClick={handleCardClick}>{props.card['Address']}</li>
+            <li key={key} className="address__option" onClick={handleCardClick}>{props.card['Address']}</li>
     )
 }
