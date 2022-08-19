@@ -36,11 +36,8 @@ export default function Main(props) {
             <div className={isOpenAddress ? 'popup popup_opened' : 'popup'} onClick={closePopup}>
             <button className="address-clients__close-btn" type='button' onClick={closePopup}></button>
             <ul className="address">
-            <input
-              type='text'
-              className='address__filter' 
-              placeholder='Введите адрес или наименование'
-              onChange={(e) => setValue(e.target.value)}
+            <AddressFilter 
+            setValue={setValue}
             />
             {filterAddress.map((card, key) => 
               <PopupAddress 
