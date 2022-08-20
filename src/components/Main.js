@@ -39,7 +39,7 @@ export default function Main(props) {
             <AddressFilter 
             setValue={setValue}
             />
-            {filterAddress.map((card, key) => 
+            {filterAddress.cards.map((card, key) => 
               <PopupAddress 
               card={card}
               key={key}

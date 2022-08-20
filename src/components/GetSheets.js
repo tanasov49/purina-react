@@ -6,15 +6,14 @@ const GetSheets = () => {
     sheetId: process.env.REACT_APP_GOOGLE_SHEETS_ID,
     sheetsOptions: [{ id: 'Vladimir' }],
   });
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+//   if (error) {
+//     return <div>Error!</div>;
+//   }
 
-  if (error) {
-    return <div>Error!</div>;
-  }
-
-  return <div>{JSON.stringify(data)}</div>;
+//   return <div>{JSON.stringify(data)}</div>;
 };
 export default GetSheets;
