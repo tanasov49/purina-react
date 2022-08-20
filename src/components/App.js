@@ -4,6 +4,7 @@ import Main from './Main';
 import React, {useState} from 'react';
 import '../index.css';
 import api from './Api';
+import GetSheets from './GetSheets';
 function App() {
 
   const [cards, setCards] = useState([]);
@@ -23,11 +24,10 @@ function App() {
        cards={cards} 
       />
       <Footer></Footer>
+      <GetSheets></GetSheets>
     </div>
   );
 }
-
-
 
 
 

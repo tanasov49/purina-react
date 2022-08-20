@@ -1,5 +1,4 @@
-//Entry Point
-import { json } from "is";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from './components/App';
@@ -10,4 +9,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
