@@ -3,6 +3,7 @@ import PopupAddress from './PopupAddress';
 import React, { useState, useMemo } from 'react';
 import DbcCodes from './DbcCodes';
 import AddressFilter from './AddressFilter';
+import Cities from './Cities';
 export default function Main(props) {
     const [isOpenAddress, setAddressPopupOpen] = useState(false)
     const handleOpenAddress = () => {
@@ -25,12 +26,26 @@ export default function Main(props) {
       return card['Address'].toLowerCase().includes(value.toLowerCase())
     })
     return (
+        
         <main className="main">
         <section className="info">
             <h1 className="info__title">Добро пожаловать на сайт</h1>
             <p className="info__subtitle">Выберите ниже нужный вам адрес</p>
         </section>
         <section className="address-clients">
+        <div className="cities">
+          <h2 className="cities__title">Выберите город</h2>
+          <ul className="city">
+            {props.cities.map(({title, value}, key) => 
+              <Cities 
+              title={title}
+              value={value}
+              key={key}
+              setCity={props.setCity}
+              />
+            )}
+            </ul>
+          </div>    
             <button className="address-clients__btn" onClick={handleOpenAddress} type='button'>Список адресов</button>
             <h2 className="address-clients__title">Ниже приведены позиции с нулевым значением</h2>
             <div className={isOpenAddress ? 'popup popup_opened' : 'popup'} onClick={closePopup}>

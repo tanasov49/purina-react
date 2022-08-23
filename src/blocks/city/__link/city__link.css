@@ -1,9 +1,10 @@
 .city__link {
-    text-decoration: none;
+    list-style-type: none;
     font-size: 18px;
     line-height: 16px;
     font-weight: 400;
     color: #000;
+    cursor: pointer;
 }
 .city__link:hover {
     color: rgb(146, 57, 57);
