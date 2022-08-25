@@ -21,6 +21,7 @@
 
 При парсинге данных на сайт, я использовал следующий модуль [use-google-sheets](https://www.npmjs.com/package/use-google-sheets)
 Ниже пример с данного модуля
+```js
 import useGoogleSheets from 'use-google-sheets';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
 
   return <div>{JSON.stringify(data)}</div>;
 };
+```
 
 В env файл я поместил следующие данные: api ключ и номер таблицы, его в репозитории нет
 api ключ получил при помощи google console [googleconsole](https://console.cloud.google.com/)
