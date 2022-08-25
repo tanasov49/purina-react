@@ -7,9 +7,8 @@
 .info__title{font-size:48px;font-weight:700;line-height:26px;margin:0;text-align:center}@media screen and (max-width:768px) and (min-width:320px){.info__title{font-size:26px}}
 .info__subtitle{font-size:18px;font-weight:400;line-height:18px;margin:20px 0 0}
 .main__title{font-size:26px;font-weight:500;line-height:22px;margin:20px 0;text-align:center}
-.cities{align-items:center;display:flex;flex-direction:column}
-.cities__title{font-size:30px;font-weight:700;line-height:22px;margin:20px 0}
-.city{display:flex;gap:0 10px}
+.cities{align-items:center;display:flex;gap:20px;justify-content:center}
+.cities__link{color:#000;font-size:18px;font-weight:400;line-height:16px;text-decoration:none}.cities__link:hover{color:#928888}
 .dbc-list{list-style-type:none;margin:0 0 5px}.dbc-list:first-child{margin:0 0 20px}.dbc-list:last-child{margin:0}
 .dbc-list_visible{display:grid}
 .city__link{color:#000;cursor:pointer;font-size:18px;font-weight:400;line-height:16px;list-style-type:none}.city__link:hover{color:#923939}

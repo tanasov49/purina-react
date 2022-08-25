@@ -1,3 +1,4 @@
+// получение товаров по ключу и проверка его на нулевое значение, затем вывод на страницу, исходя из нажатия на выбранный адрес
 import React from "react";
 export default function DbcCodes({card}) {
     return (

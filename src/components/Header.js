@@ -1,3 +1,4 @@
+// Сюда происходит импорт ссылок из компонента Links
 import logo from '../images/PurinaRUHeader_2.png';
 import React from 'react';
 import { Link } from 'react-router-dom';

@@ -1,3 +1,4 @@
+// Роуты по каждому блоку, в которые я передаю соотвествующие пропсы
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Kaliningrad from '../pages/Kaliningrad'

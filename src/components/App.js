@@ -1,18 +1,11 @@
+// Сюда импортирую все основные элементы страницы
+import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
-import React, {useState} from 'react';
+// Импорт стилей
 import '../index.css';
-import { Api } from './Api.js';
-function App() {
-  const [cities] = useState([
-    {title: 'Калининград', value: 'Kaliningrad'},
-    {title: 'Мурманск', value: 'Murmansk'},
-    {title: 'Тверь', value: 'Tver'},
-    {title: 'Вологда', value: 'Vologda'}
-  ]);
-
-
+export default function App() {
   return (
     <div className='page'>
       <Header></Header>
@@ -22,7 +15,3 @@ function App() {
     </div>
   );
 }
-
-
-
-export default App;

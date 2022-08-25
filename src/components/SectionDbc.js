@@ -1,3 +1,4 @@
+// Блок popup для отображения адресов
 export default function SectionDbc(props) {
     return (
         <div className={props.isOpen ? 'popup popup_opened' : 'popup'} onClick={props.onClose}>

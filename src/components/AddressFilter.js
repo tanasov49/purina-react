@@ -1,5 +1,5 @@
 import React from 'react'
-
+// Инпут для поиска адреса
 export default function AddressFilter(props) {
   const setValue = (e) => props.setValue(e.target.value);
   return (

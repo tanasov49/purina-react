@@ -1,11 +1,9 @@
+// В данном блоке я получаю данные из листов, а затем скидываю их в просы в роуты
 import React, {useState} from 'react';
 import { Api } from './Api';
 import RoutesPage from './RoutesPage';
 export default function Main() {
-  const [cardsKaliningrad, setCardsKaliningrad] = useState([]);
-  const [cardsVologda, setCardsVologda] = useState([])
-  const [cardsMurmansk, setCardsMurmansk] = useState([])
-  const [cardsTver, setCardsTver] = useState([])
+  // Получение данных из листов гугл таблиц
   const apiKaliningrad = new Api (
     'Kaliningrad'
   )
@@ -18,8 +16,12 @@ export default function Main() {
   const apiTver = new Api (
     'Tver'
   )
-
-
+    // Хуки для получение данных из таблиц
+    const [cardsKaliningrad, setCardsKaliningrad] = useState([]);
+    const [cardsVologda, setCardsVologda] = useState([])
+    const [cardsMurmansk, setCardsMurmansk] = useState([])
+    const [cardsTver, setCardsTver] = useState([])
+    //Промисы для рендера данных
   Promise.all([
     apiKaliningrad.getSheets(),
     apiVologda.getSheets(),
@@ -33,7 +35,7 @@ export default function Main() {
   }).catch(err => {
     console.log(`Error: ${err}`);
   })
-
+    // Блок main в него передаем данные из таблицы в роуты
     return (
         <main className="main">
                 <section className="info">
