@@ -6,10 +6,9 @@
 @import url(./blocks/info/info.css);
 @import url(./blocks/info/__title/info__title.css);
 @import url(./blocks/info/__subtitle/info__subtitle.css);
+@import url(./blocks/main/__title/main__title.css);
 @import url(./blocks/cities/cities.css);
-@import url(./blocks/cities/__title/cities__title.css);
-@import url(./blocks/city/city.css);
-@import url(./blocks/city/__link/city__link.css);
+@import url(./blocks/cities/__link/cities__link.css);
 @import url(./blocks/dbc-list/dbc-list.css);
 @import url(./blocks/dbc-list/dbc-list_visible.css);
 @import url(./blocks/city/__link/city__link.css);

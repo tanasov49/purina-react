@@ -1,72 +1,50 @@
+import React, {useState} from 'react';
+import { Api } from './Api';
+import RoutesPage from './RoutesPage';
+export default function Main() {
+  const [cardsKaliningrad, setCardsKaliningrad] = useState([]);
+  const [cardsVologda, setCardsVologda] = useState([])
+  const [cardsMurmansk, setCardsMurmansk] = useState([])
+  const [cardsTver, setCardsTver] = useState([])
+  const apiKaliningrad = new Api (
+    'Kaliningrad'
+  )
+  const apiVologda = new Api (
+    'Vologda'
+  )
+  const apiMurmansk = new Api (
+    'Murmansk'
+  )
+  const apiTver = new Api (
+    'Tver'
+  )
 
-import PopupAddress from './PopupAddress';
-import React, { useState, useMemo } from 'react';
-import DbcCodes from './DbcCodes';
-import AddressFilter from './AddressFilter';
-import Cities from './Cities';
-export default function Main(props) {
-    const [isOpenAddress, setAddressPopupOpen] = useState(false)
-    const handleOpenAddress = () => {
-      setAddressPopupOpen(true);
-    }
-  
-    function closePopup (event) {
-      if (event.target.classList.contains('popup') || event.target.classList.contains('address-clients__close-btn')) {
-        setAddressPopupOpen(false);
-        
-      }
-    }
-    const [selectedCard, setIsSelectedCard] = useState({});
-    const handleCardClick = (card) => {
-        setIsSelectedCard(card);
-        setAddressPopupOpen(false);
-      }
-    const [value, setValue] = useState('');
-    const filterAddress = props.cards.filter(card => {
-      return card['Address'].toLowerCase().includes(value.toLowerCase())
-    })
+
+  Promise.all([
+    apiKaliningrad.getSheets(),
+    apiVologda.getSheets(),
+    apiMurmansk.getSheets(),
+    apiTver.getSheets()
+  ]).then(([cardsKaliningrad, cardsVologda, cardsMurmansk, cardsTver]) => {
+    setCardsKaliningrad(cardsKaliningrad[0]['data']);
+    setCardsVologda(cardsVologda[0]['data'])
+    setCardsMurmansk(cardsMurmansk[0]['data'])
+    setCardsTver(cardsTver[0]['data'])
+  }).catch(err => {
+    console.log(`Error: ${err}`);
+  })
+
     return (
-        
         <main className="main">
-        <section className="info">
-            <h1 className="info__title">Добро пожаловать на сайт</h1>
-            <p className="info__subtitle">Выберите ниже нужный вам адрес</p>
-        </section>
-        <section className="address-clients">
-        <div className="cities">
-          <h2 className="cities__title">Выберите город</h2>
-          <ul className="city">
-            {props.cities.map(({title, value}, key) => 
-              <Cities 
-              title={title}
-              value={value}
-              key={key}
-              setCity={props.setCity}
-              />
-            )}
-            </ul>
-          </div>    
-            <button className="address-clients__btn" onClick={handleOpenAddress} type='button'>Список адресов</button>
-            <h2 className="address-clients__title">Ниже приведены позиции с нулевым значением</h2>
-            <div className={isOpenAddress ? 'popup popup_opened' : 'popup'} onClick={closePopup}>
-            <button className="address-clients__close-btn" type='button' onClick={closePopup}></button>
-            <ul className="address">
-            <AddressFilter 
-            setValue={setValue}
-            />
-            {filterAddress.map((card, key) => 
-              <PopupAddress 
-              card={card}
-              key={key}
-              onCardClick={handleCardClick}
-              />
-            )}
-        </ul>
-        </div>
-        <DbcCodes 
-        card={selectedCard}
-        />
-        </section>
+                <section className="info">
+                  <h1 className="info__title">Добро пожаловать на сайт</h1>
+                </section>
+                <RoutesPage 
+                  cardsKaliningrad={cardsKaliningrad}
+                  cardsVologda={cardsVologda}
+                  cardsMurmansk={cardsMurmansk}
+                  cardsTver={cardsTver}
+                />
         </main>
     );
 }
