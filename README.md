@@ -19,7 +19,7 @@
 
 ## Использование гугл таблиц
 
-При парсинге данных на сайт, я использовал следующий модуль[use-google-sheets](https://www.npmjs.com/package/use-google-sheets)
+При парсинге данных на сайт, я использовал следующий модуль [use-google-sheets](https://www.npmjs.com/package/use-google-sheets)
 Ниже пример с данного модуля
 import useGoogleSheets from 'use-google-sheets';
 
